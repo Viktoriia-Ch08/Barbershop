@@ -74,7 +74,7 @@ body {
     padding: 0 15px;
     margin: 0 auto;
 
-    outline: 1px solid yellowgreen;
+  
    
 }
 .button {
@@ -431,10 +431,37 @@ a.current-page {
 }
 /* Advantages */
 /* list with numbers */
+.priority-container {
+    display: flex;
+    gap: 30px;
+}
+.priority-left-side {
+    width: 570px;
+}
+.priority-list {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .priority-item {
     background-color: var(--second-bg-color);
+    width: 170px;
+    min-height: 133px;
+    padding: 20px 24px;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.priority-item:nth-child(2n) {
+    margin-top: 30px;
+    margin-left: 30px;
 }
 .priority-numb {
+    position: relative;
+    display: inline-block;
+
     font-weight: 700;
     font-size: 42px;
     line-height: 1.35;
@@ -442,19 +469,28 @@ a.current-page {
     letter-spacing: 0.05em;
     color: #303030;
 }
-.sign {
+
+.priority-numb::after {
+    content: "\002B";
+    position: absolute;
+    top: 7px;
+    right: -15px;
+    color: #FF6C00;
+    
     font-weight: 600;
     font-size: 16px;
-    line-height: 1.3;
-    text-align: center;
-    color: #FF6C00;
+    line-height: 1.38;
 }
+
 .priority-description {
     font-weight: 600;
     font-size: 11px;
     line-height: 1.36;
     text-align: center;
-    color: #303030;
+    
+}
+.priority-right-side {
+    width: 500px;
 }
 .priority-title {
     margin-bottom: 20px;
