@@ -19,6 +19,10 @@
 --hero-text-color: #9DA4BD;
 --slider-btn-color: rgba(157, 164, 189, 0.6);
 --img-background-clr: #111319;
+--fill-icn: #303030;
+--fill-icn-hover: #FF6C00;
+
+--low-transition: 300ms linear;
 }
 
 /* Reset starts */
@@ -78,20 +82,25 @@ body {
    
 }
 .button {
-    background-color: transparent;
+    padding: 12px 19px;
+    
     font-weight: 600;
     font-size: 12px;
     line-height: 1.33;
     letter-spacing: 0.09em;
     text-transform: uppercase;
+    
     text-align: center;
+
     border: 1px solid #FF6C00;
     border-radius: 25px;
-    padding: 12px 19px;
+    background-color: transparent;
+
+    transition: background-color var(--low-transition);
 }
 .button:hover,
 .button:focus {
-    color:var(--hover-focus);
+    background-color:var(--hover-focus);
 }
 .dark-btn {
     color: var(--dark-button-color);
@@ -152,6 +161,9 @@ body {
     width: 100%;
 
     padding: 22px 0;
+
+    background-color: rgb(0, 0, 0, 0.4);
+    backdrop-filter: blur(1px);
 }
 .header-container {
     display: flex;
@@ -185,6 +197,8 @@ body {
     display: block;
     padding-top: 30px;
     padding-bottom: 30px;
+
+    transition: color var(--low-transition);
 }
 a.current-page {
     color: var(--hover-focus);
@@ -198,10 +212,15 @@ a.current-page {
     position: absolute;
     bottom: 12px;
     left: 0;
+    
     display: block;
     width: 100%;
     height: 4px;
+
+    background-color: transparent;
     border-radius: 4px;
+
+    transition: background-color var(--low-transition);
 
 }
 .header-link.current-page::after,
@@ -215,6 +234,8 @@ a.current-page {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-right: 40px;
+
+    transition: color var(--low-transition);
 }
 .contact-numb:hover,
 .contact-numb:focus {
@@ -257,18 +278,26 @@ a.current-page {
     align-items: center;
     gap: 40px;
 }
+
 .media-list::before {
     content: '';
     width: 60px;
     height: 1px;
     background-color: #303030;
 }
+.socials {
+    transform: translate(-100px, -130px)rotate(270deg);
+}
+
 .media-link {
     display: block;
     font-weight: 600;
     font-size: 11px;
     line-height: 1.36;
     letter-spacing: 0.2em;
+
+    color: #303030;
+    transition: color var(--low-transition);
 }
 .media-link:hover,
 .media-link:focus {
@@ -354,6 +383,16 @@ a.current-page {
     display: flex;
     gap: 30px;
 }
+.about-item {
+    overflow: hidden;
+}
+.about-img {
+    transform: scale(1);
+    transition: transform var(--low-transition);
+}
+.about-img:hover {
+    transform: scale(1.2);
+}
 .about-info {
    width: 470px; 
 }
@@ -368,8 +407,8 @@ a.current-page {
     font-size: 14px;
     line-height: 1.86;
     color: var(--dark-text-color);
-    
 }
+
 
 /* Price section */
 #Price {
@@ -509,6 +548,47 @@ a.current-page {
     text-align: center;
     width: calc(100% - ((60 / 2)*3));
 }
+
+.thumb {
+    position: relative;
+}
+.barbers-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.text-box {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.2);
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+
+    width: 80%;
+    height: 80%;
+    padding: 15px;
+
+    opacity: 0;
+    background-color: rgba(121, 116, 112, 0.5);
+    backdrop-filter: blur(3px);
+
+    transition: transform 600ms cubic-bezier(0.18, 0.89, 0.32, 1.28),
+    opacity 600ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.barbers-item:hover .text-box {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.hidden-barbers-text  {
+    color: var(--light-title-color);
+}
 .barbers-info {
     text-align: center;
     padding: 30px 15px;
@@ -516,6 +596,44 @@ a.current-page {
 .barbers-title {
     margin-bottom: 3px;
 }
+
+.social-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    min-height: 44px;
+
+    background-color: var(--first-bg-color);
+    border-radius: 50%; 
+
+    transition: background-color var(--low-transition);
+}
+
+.social-link:hover,
+.social-link:focus {
+    background-color: var(--dark-button-color);
+}
+
+.barbers-img {
+    fill: var(--fill-icn);
+
+    transition: fill var(--low-transition);
+}
+
+.social-link:hover .barbers-img,
+.social-link:focus .barbers-img {
+    fill: var(--fill-icn-hover);
+}
+
 /* Position */
 .barbers-position {
     color: #FF6C00;
@@ -532,30 +650,81 @@ a.current-page {
 
 /* Contacts */
 .main-wrapper {
-    background-color: #111319;;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: #111319;
+    background-image: url(../images/contacts/bg-img.png);
+    background-repeat: no-repeat;
+    background-position: center left calc(50% + 408px);
+    background-size: contain;
 }
+
+.booking-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.booking-section {
+    width: 570px;
+}
+
+.booking-title {
+    color: var(--light-title-color);
+}
+
 #Contacts {
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 1.16;
-    letter-spacing: 0.05em;
-    color: #FFFFFF;
+    width: 570px;
+    padding-left: 100px;
     
 }
 .contacts-title {
     margin-bottom: 44px;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.16;
+    letter-spacing: 0.05em;
+    
+    color: #FFFFFF;
 }
-.contacts-list {
+
+.contacts-address {
     margin-bottom: 72px;
 }
+
+.contacts-item {
+    margin-bottom: 20px;
+}
 .contacts-link {
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
     font-style: normal;
+    line-height: 1.6;
+
     color:#9DA4BD;
 }
 
+.contacts-item:first-child .contacts-link {
+    font-weight: 700;
+}
+
+.contacts-icon {
+    fill: currentColor;
+    order: -1;
+}
+.work-title {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 1.36;
+    
+    text-transform: uppercase;
+}
 .hours-text {
     font-family: 'Open Sans';
     font-style: normal;
