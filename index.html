@@ -56,7 +56,11 @@
         <a class="contact-numb link" href="tel:+380441111111"
           >+38 044 111 11 11</a
         >
-        <button class="light-btn header-btn button" type="button">
+        <button
+          class="light-btn header-btn button"
+          type="button"
+          data-modal-open
+        >
           Online-booking
         </button>
       </div>
@@ -661,7 +665,15 @@
       </div>
     </footer>
 
+    <!-- Modal window -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-btn" type="button" data-modal-close></button>
+      </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./animation.js"></script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
