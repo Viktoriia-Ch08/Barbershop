@@ -56,13 +56,15 @@
         <a class="contact-numb link" href="tel:+380441111111"
           >+38 044 111 11 11</a
         >
-        <button
-          class="light-btn header-btn button"
-          type="button"
-          data-modal-open
-        >
-          Online-booking
-        </button>
+        <div class="data-modal-open-wrapper">
+          <button
+            class="light-btn header-btn button"
+            type="button"
+            data-modal-open
+          >
+            Online-booking
+          </button>
+        </div>
       </div>
     </header>
     <!--Main-->
@@ -164,10 +166,11 @@
               always "on the same wave" with clients. Therefore, we are always
               ready to improve everyone who comes to us!
             </p>
-
-            <button class="dark-btn button" type="button">
-              Online-booking
-            </button>
+            <div class="data-modal-open-wrapper">
+              <button class="dark-btn button" type="button" data-modal-open>
+                Online-booking
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -229,9 +232,15 @@
               </ul>
             </li>
           </ul>
-          <button class="light-btn price-btn button" type="button">
-            Online-booking
-          </button>
+          <div class="data-modal-open-wrapper">
+            <button
+              class="light-btn price-btn button"
+              type="button"
+              data-modal-open
+            >
+              Online-booking
+            </button>
+          </div>
         </div>
       </section>
       <!--Advantages section-->
@@ -239,45 +248,21 @@
         <div class="priority-container container">
           <div class="priority-left-side">
             <ul class="priority-list list">
-              <li
-                class="priority-item"
-                data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-                data-aos-delay="300"
-              >
+              <li class="priority-item">
                 <p class="priority-numb">600</p>
                 <p class="priority-description">Satisfied customers per day</p>
               </li>
-              <li
-                class="priority-item"
-                data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-                data-aos-delay="400"
-              >
+              <li class="priority-item">
                 <p class="priority-numb">20</p>
                 <p class="priority-description">
                   Kyiv&#8217;s best professional barbers
                 </p>
               </li>
-              <li
-                class="priority-item"
-                data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-                data-aos-delay="500"
-              >
+              <li class="priority-item">
                 <p class="priority-numb">50</p>
                 <p class="priority-description">Awards for excellent service</p>
               </li>
-              <li
-                class="priority-item"
-                data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-                data-aos-delay="600"
-              >
+              <li class="priority-item">
                 <p class="priority-numb">100</p>
                 <p class="priority-description">Gifts for regular customers</p>
               </li>
@@ -528,11 +513,7 @@
           </p>
           <h2 class="gallery-title" hidden>Our work</h2>
           <ul class="gallery-list list">
-            <li
-              class="gallery-item"
-              data-aos="zoom-in-right"
-              data-aos-delay="300"
-            >
+            <li class="gallery-item">
               <img
                 class="gallery-img"
                 src="./images/Our_work/img-1.jpg"
@@ -541,11 +522,7 @@
                 height="360"
               />
             </li>
-            <li
-              class="gallery-item"
-              data-aos="zoom-in-right"
-              data-aos-delay="600"
-            >
+            <li class="gallery-item">
               <img
                 class="gallery-img"
                 src="./images/Our_work/img-2.jpg"
@@ -554,11 +531,7 @@
                 height="360"
               />
             </li>
-            <li
-              class="gallery-item"
-              data-aos="zoom-in-right"
-              data-aos-delay="900"
-            >
+            <li class="gallery-item">
               <img
                 class="gallery-img"
                 src="./images/Our_work/img-3.jpg"
@@ -567,11 +540,7 @@
                 height="360"
               />
             </li>
-            <li
-              class="gallery-item"
-              data-aos="zoom-in-right"
-              data-aos-delay="1200"
-            >
+            <li class="gallery-item">
               <img
                 class="gallery-img"
                 src="./images/Our_work/img-4.jpg"
@@ -589,6 +558,64 @@
         <div class="booking-container container">
           <section class="booking-section section">
             <h2 class="booking-title title">Online-booking</h2>
+            <div class="inputs-wrapper">
+              <form class="booking-form">
+                <label for="name" class="booking-label">Name</label>
+                <div class="person-name wrapper">
+                  <input
+                    type="text"
+                    class="booking-input"
+                    name="name"
+                    required
+                  />
+                  <svg class="booking-icon" width="18" height="24">
+                    <use href="./images/icon.svg#icon-person"></use>
+                  </svg>
+                </div>
+                <label for="phone" class="booking-label">Phone</label>
+                <div class="person-phone wrapper">
+                  <input
+                    type="tel"
+                    class="booking-input"
+                    name="phone"
+                    required
+                    minlength="12"
+                    maxlength="12"
+                  />
+                  <svg class="booking-icon" width="18" height="24">
+                    <use href="./images/icon.svg#icon-phone-modal"></use>
+                  </svg>
+                </div>
+                <label for="email" class="booking-label">E-mail</label>
+                <div class="person-email wrapper">
+                  <input
+                    type="email"
+                    class="booking-input"
+                    name="email"
+                    required
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])"
+                  />
+                  <svg class="booking-icon" width="18" height="24">
+                    <use href="./images/icon.svg#icon-email"></use>
+                  </svg>
+                </div>
+                <label for="comment" class="booking-label">Comment</label>
+                <textarea
+                  class="booking-form-message"
+                  name="comment"
+                  rows="5"
+                  placeholder="Text input"
+                ></textarea>
+                <label class="booking-agreement"
+                  ><input type="checkbox" class="agreement" name="agreement" />
+                  <span class="agreement-text"
+                    >I accept the terms and conditions of the
+                    <a href="" class="policy">Privacy Policy</a>
+                  </span>
+                </label>
+                <button class="booking-btn button" type="submit">Send</button>
+              </form>
+            </div>
           </section>
           <section class="contacts-section section" id="Contacts">
             <h2 class="contacts-title">Contacts</h2>
@@ -668,12 +695,68 @@
     <!-- Modal window -->
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
-        <button class="modal-btn" type="button" data-modal-close></button>
+        <button class="modal-btn" type="button" data-modal-close>
+          &times;
+        </button>
+        <p class="modal-text text">
+          Leave your contacts and we will call you back
+        </p>
+        <div class="inputs-wrapper">
+          <form class="modal-form">
+            <label for="name" class="modal-label">Name</label>
+            <div class="person-name wrapper">
+              <input type="text" class="modal-input" name="name" required />
+              <svg class="modal-icon" width="18" height="24">
+                <use href="./images/icon.svg#icon-person"></use>
+              </svg>
+            </div>
+            <label for="phone" class="modal-label">Phone</label>
+            <div class="person-phone wrapper">
+              <input
+                type="tel"
+                class="modal-input"
+                name="phone"
+                required
+                minlength="12"
+                maxlength="12"
+              />
+              <svg class="modal-icon" width="18" height="24">
+                <use href="./images/icon.svg#icon-phone-modal"></use>
+              </svg>
+            </div>
+            <label for="email" class="modal-label">E-mail</label>
+            <div class="person-email wrapper">
+              <input
+                type="email"
+                class="modal-input"
+                name="email"
+                required
+                pattern="^(?=.*[a-z])(?=.*[A-Z])"
+              />
+              <svg class="modal-icon" width="18" height="24">
+                <use href="./images/icon.svg#icon-email"></use>
+              </svg>
+            </div>
+            <label for="comment" class="modal-label">Comment</label>
+            <textarea
+              class="modal-form-message"
+              name="comment"
+              rows="5"
+              placeholder="Text input"
+            ></textarea>
+            <label class="modal-agreement"
+              ><input type="checkbox" class="agreement" name="agreement" />
+              <span class="agreement-text"
+                >I accept the terms and conditions of the
+                <a href="" class="policy">Privacy Policy</a>
+              </span>
+            </label>
+            <button class="submit-btn button" type="submit">Send</button>
+          </form>
+        </div>
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./animation.js"></script>
     <script src="./js/modal.js"></script>
   </body>
 </html>

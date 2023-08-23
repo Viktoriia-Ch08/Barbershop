@@ -23,6 +23,10 @@
 --fill-icn-hover: #FF6C00;
 
 --low-transition: 300ms linear;
+
+--hover-focus-trans: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+--link-color: #4d5ae5;
+--modal-label-clr: #8E8F99;
 }
 
 /* Reset starts */
@@ -668,11 +672,124 @@ a.current-page {
 }
 
 .booking-section {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
     width: 570px;
 }
 
+.booking-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
 .booking-title {
+    margin-bottom: 15px;
     color: var(--light-title-color);
+}
+
+.booking-label {
+    margin-left: 15px;
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+
+    color: #9DA4BD;
+}
+
+.booking-input {
+    width: 100%;
+    height: 40px;
+    padding-left: 38px;
+
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 40px;
+
+    transition: border var(--hover-focus-trans);
+}
+
+.booking-input:focus {
+    border: 1px solid var(--hover-focus);
+}
+
+.booking-icon {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    pointer-events: none;
+
+    color: currentColor;
+    transition: fill var(--hover-focus-trans);
+
+}
+
+.booking-input:focus+.booking-icon {
+    fill: var(--hover-focus);
+}
+
+.booking-form-message {
+    display: block;
+    width: 100%;
+    min-height: 120px;
+    max-height: 180px;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+
+    resize: none;
+
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.04em;
+
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 20px;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    color: rgba(46, 47, 66, 1);
+
+    transition: border var(--hover-focus-trans);
+}
+
+.booking-form-message::placeholder {
+    color: rgba(46, 47, 66, 0.4);
+}
+
+.booking-form-message:focus {
+    border: 1px solid var(--hover-focus);
+}
+
+.booking-agreement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-bottom: 24px;
+}
+
+.booking-btn{
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 169px;
+    height: 56px;
+
+    background-color:transparent ;
+    color: #FFFFFF;
+    transition: background-color var(--low-transition), color var(--low-transition);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+
+.booking-btn:hover,
+.booking-btn:focus {
+    background-color: #FF6C00;
+    border: none;
 }
 
 #Contacts {
@@ -805,3 +922,205 @@ a.current-page {
     transform: translate(-50%, -50%) rotate(360deg);
     opacity: 0;
 }
+
+.modal-btn{
+    position: absolute;
+    right: 20px;
+
+    text-align: center;
+
+    width:30px;
+    height:30px;
+
+    font-size: 24px;
+    
+    
+    border: none;
+    border-radius: 50px;
+
+    transition: background-color 400ms, color 400ms;
+
+}
+
+.modal-btn:hover{
+    background-color: red;
+    color: white;   
+}
+
+.modal-text {
+    width: 360px;
+    margin-bottom: 16px;
+    padding-top:45px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+
+    color: #2E2F42;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+
+    width: 360px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.modal-label {
+    margin-bottom: 4px;
+
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.01em;
+
+    color: var(--modal-label-clr);
+}
+
+.modal-input {
+    width: 100%;
+    height: 40px;
+    padding-left: 38px;
+
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px;
+
+    transition: border var(--hover-focus-trans);
+}
+
+ .modal-input:focus {
+     border: 1px solid var(--hover-focus);
+ }
+
+ .modal-icon {
+     position: absolute;
+     top: 8px;
+     left: 16px;
+     pointer-events: none;
+
+    color: currentColor;
+    transition: fill var(--hover-focus-trans);
+  
+ }
+
+ .modal-input:focus+.modal-icon {
+     fill: var(--hover-focus);
+ }
+
+ .modal-form-message {
+     display: block;
+     width: 100%;
+    min-height: 120px;
+     max-height: 180px;
+     padding: 8px 16px;
+     margin-bottom: 16px;
+
+    resize: none;
+
+    font-size: 12px;
+    line-height: 1.16;
+    letter-spacing: 0.04em;
+
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    color: rgba(46, 47, 66, 1);
+
+    transition: border var(--hover-focus-trans);
+ }
+
+ .modal-form-message::placeholder {
+    color: rgba(46, 47, 66, 0.4);
+ }
+
+  .modal-form-message:focus {
+    border: 1px solid var(--hover-focus);
+  }
+
+  .modal-agreement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-bottom: 24px;
+  }
+
+  .agreement {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+
+      outline: 2px solid transparent;
+      outline-offset: -2px;
+
+      border: 1px solid #8E8F99;
+      border-radius: 2px;
+
+      background-color: transparent;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.44558 0.255056C8.61838 0.089653 8.84834 -0.00178848 9.08693 2.65108e-05C9.32551 0.0018415 9.55407 0.0967713 9.72436 0.264784C9.89466 0.432797 9.99337 0.660752 9.99968 0.900549C10.006 1.14034 9.91939 1.37323 9.75816 1.55005L4.86357 7.70436C4.7794 7.79551 4.67782 7.86865 4.5649 7.91942C4.45198 7.97018 4.33003 7.99754 4.20636 7.99984C4.08268 8.00214 3.95981 7.97935 3.8451 7.93282C3.73038 7.88629 3.62618 7.81698 3.53872 7.72903L0.292827 4.46564C0.202435 4.38096 0.129933 4.27884 0.0796475 4.16537C0.0293621 4.05191 0.00232279 3.92942 0.000143182 3.80522C-0.00203643 3.68102 0.0206883 3.55765 0.0669613 3.44248C0.113234 3.3273 0.182108 3.22267 0.269473 3.13483C0.356838 3.047 0.460905 2.97775 0.575465 2.93123C0.690026 2.88471 0.812734 2.86186 0.936267 2.86405C1.0598 2.86624 1.18163 2.89343 1.29449 2.94398C1.40734 2.99454 1.50892 3.06743 1.59315 3.15831L4.16189 5.73967L8.42227 0.28219C8.42994 0.272694 8.43813 0.263635 8.4468 0.255056H8.44558Z' fill='%23F4F4FD'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 0;
+
+      transition: border var(--hover-focus-trans),
+          background-color var(--hover-focus-trans), background-size var(--hover-focus-trans);
+
+      cursor: pointer;
+  }
+
+  .agreement:checked {
+      border: 1px solid #FF6C00;
+      background-color: #FF6C00;
+      background-size: 10px;
+  }
+
+  .agreement-text {
+      font-size: 12px;
+      line-height: 1.16;
+      letter-spacing: 0.04em;
+
+      color: #8E8F99;
+  }
+
+  .policy {
+    color: var(--link-color);
+  }
+
+  .submit-btn {
+    width: 169px;
+    height: 56px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.04em;
+
+    
+    color: var(--light-button-color);
+
+    border: none;
+    border-radius: 25px;
+    background-color: #111319;
+
+    transition: background-color var(--low-transition);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  
+
+ 
+  }
+
+.submit-btn:hover,
+.submit-btn:focus {
+    background-color: var(--hover-focus);
+   }
